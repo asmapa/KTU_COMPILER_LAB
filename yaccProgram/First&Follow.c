@@ -52,9 +52,8 @@ void printset(char *set)
     printf("{");
     for(i=0;set[i]!='\0';i++)
     {
-        printf("%c",set[i]);
-        if(set[i+1]!='\0')
-            printf(",");
+        printf("%c\t",set[i]);
+        
     }
     printf("}\n");
 }
