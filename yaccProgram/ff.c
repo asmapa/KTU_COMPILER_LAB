@@ -70,7 +70,7 @@ void read_productions()
     scanf("%d",&num_productions);
     printf("Enter the productions as A=Bc,A=# (Use # for epsilon and = for arrow)\n");
     getchar(); //Remove new line from stdin
-    for(int i=0;i<num_productions;i++)
+    for(int i=0;i<num_productions;i++)  
     {
         scanf("%[^\n]",productions[i]);
         getchar(); //Remove new line from stdin
