@@ -8,10 +8,10 @@ void calculate();
 %}
 
 %option noyywrap
-num    [0-9]+|[0-9]*"."[0-9]+
+  
 
 %%
-{num}      { calculate(); }
+[0-9]+|[0-9]*"."[0-9]+      { calculate(); }
 "+"        { opcode = 1; }
 "-"        { opcode = 2; }
 "*"        { opcode = 3; }
