@@ -186,7 +186,11 @@ int main(int argc, char *argv[])
 			    break;
 			case 6:
 			    do{ch=fgetc(f);} //ignore a multiline comment
+<<<<<<< HEAD
 			    while(ch!='*'); 
+=======
+			    while(ch!='*');
+>>>>>>> 970a283078dab5398c521c3d54a992d560e960e8
 			    if(ch=='*')
 			    { 
 			        ch=fgetc(f);

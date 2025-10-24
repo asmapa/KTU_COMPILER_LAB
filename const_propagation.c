@@ -5,6 +5,8 @@
 #define MAXQUADS 10
 #define OPNDSIZE 5
 
+typedef enum {false,true}bool;
+
 int numquads=0;
 typedef struct
 {
@@ -14,16 +16,23 @@ typedef struct
 	char res[OPNDSIZE];
 } quadruple;
 quadruple quads[MAXQUADS];
-int isint(char*s) //Check for integer constant values
+
+
+
+bool isint(char*s) //Check for integer constant values
+
 {
     while(*s)
     {
         if(!isdigit(*s))
-            return 0;
+            return false;
         s++;
     }
-    return 1;
-}
+     return true;
+   
+    }
+   
+
 //Evaluate the given three address expression
 int calculate(char *op1,char *op2, char optr)
 {
@@ -82,6 +91,7 @@ void propogate() //Propogate the evaluated constant values
 }
 int main()
 {
+
     
     printf("Enter the number of 3-address instructions\n");
     scanf("%d",&numquads);
@@ -93,6 +103,18 @@ int main()
           quads[i].op2,
           quads[i].res);
 }
+
+    memset(quads,0,sizeof(quads)); //clear the quadruples table
+    printf("Enter the number of 3-address instructions\n");
+    scanf("%d",&numquads);
+    printf("Enter each instruction\n e.g.\n + 2 3 a\n = 3 - b\n");
+    for(int i=0;i<numquads;i++)
+    {
+        getchar(); //Remove stray new lines
+        quads[i].op=getchar();
+        scanf("%s %s %s",quads[i].op1,quads[i].op2,quads[i].res);
+    }
+
     fold(); 
     propogate();
     printf("The code after constant folding and propogation is:\n");
@@ -102,5 +124,9 @@ int main()
     {
         printf("%c\t%s\t%s\t%s\n",quads[i].op,quads[i].op1,quads[i].op2,quads[i].res);
     }
+
  
+
+ return false;
+
 }

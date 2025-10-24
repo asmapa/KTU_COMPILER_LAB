@@ -18,13 +18,19 @@ int main()
 {
     printf("Enter the string to be parsed");
     scanf("%[^\n]",input);
-   // getchar();//remove extra new line from i/p stream.
+
+
+    getchar();//remove extra new line from i/p stream.
+
     printf("\nSHIFT-REDUCE PARSING\n");
     printf("Stack\t\tInput\t\tAction\n");
     printf("-----\t\t-----\t\t------\n");
     while(input[ip_ptr]!='\0') //till the end of the input
     {
-       shift(input[ip_ptr]);
+
+
+       shift(input[ip_ptr++]);
+
        for(int j=0;j<NUMPROD;j++) //continuously reduce
         for(int i=0;i<NUMPROD;i++)
         {
@@ -35,6 +41,7 @@ int main()
                 reduce(i,pos);
             }
         }
+
         ip_ptr++;
     }
     //After the input is finished
